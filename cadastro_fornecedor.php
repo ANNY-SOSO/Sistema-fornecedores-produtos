@@ -1,4 +1,5 @@
 <!-- 3ª Digitação (Aqui) -->
+
 <?php
 // Inclui o arquivo que valida a sessão do usuário
 include('valida_sessao.php');
@@ -137,6 +138,8 @@ if (isset($_GET['edit_id'])) {
 }
 ?>
 
+<!-- HTML-->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -212,5 +215,3 @@ if (isset($_GET['edit_id'])) {
     </div>
 </body>
 </html>
-
-

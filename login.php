@@ -1,4 +1,4 @@
-<!-- 2ª Digitação (Aqui) -->
+<!-- 2ª Digitação -->
 <?php
 // Inicia uma sessão para armazenar informações do usuário durante a navegação.
 session_start();
@@ -6,16 +6,16 @@ session_start();
 // Inclui o arquivo de conexão com o banco de dados.
 include('conexao.php');
 
-// Verifica se a requisição foi feita através do método POST (envio do formulário).
+//Verifica se a requisição foi feita através do método POST (envio de formulário).
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Recebe os dados enviados pelo formulário (usuário e senha).
+    // Recebe os dados enviados pelo formulário (usuário e senha)
     $usuario = $_POST['usuario'];
-    // Aplica o algoritimo MDS para criptografar a senha antes de verificar no banco de dados.
+    // Aplica o algoritmo MDS para criptografar a senha antes de verificar no banco de dados.
     $senha = md5($_POST['senha']);
 
     // Monta a consulta SQL para verificar se o usuário e senha existem no banco.
     $sql = "SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha'";
-    // Executa a consulta e armazena o resultado.
+    // Executa a consulta e armazena o resultado
     $result = $conn->query($sql);
 
     // Verifica se a consulta retornou algum registro.
@@ -25,12 +25,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Redireciona o usuário para a página inicial.
         header('Location: index.php');
     } else {
-        // Se o login falhar, define uma mensagem de erro.
+        // Se o login falhar, define uma mensagem de erro
         $error = "Usuário ou senha inválidos.";
     }
 }
 ?>
 
+<!-- HTML -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -46,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" name="usuario" required>
             <label for="senha">Senha:</label>
             <input type="password" name="senha" required>
-            <button type="submit" style="margin-bottom: 30px;">Entrar</button>
-            <!-- Exibe a mensagem de erro, se houver. -->
+            <button type="submit" style="margin-bottom: 30px;" >Entrar</button>
+            <!-- Exibe a mensagem de erro, se houver -->
             <?php if (isset($error)) echo "<p class='message error'>$error</p>"; ?>
         </form>
     </div>

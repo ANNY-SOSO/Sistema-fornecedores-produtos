@@ -154,6 +154,8 @@ if (isset($_GET['edit_id'])) {
 $fornecedores = $conn->query("SELECT id, nome FROM fornecedores");
 ?>
 
+<!-- HTML -->
+ 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
